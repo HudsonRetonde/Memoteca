@@ -2,13 +2,14 @@
   <header class="header">
     <h2>Adicione um <br>pensamento novo:</h2>
   </header>
-  <form [formGroup]="formulario">
+  <form [formGroup]="formulario" (ngSubmit)="criarPensamento()">
     <label for="pensamento">Pensamento</label>
     <input
+      textarea
       type="textarea"
       class="input"
       id="pensamento"
-      formContrlName="conteudo"
+      formControlName="conteudo"
       placeholder="Digite o pensamento"
     >
     <div class="mensagem__erro" *ngIf="formulario.get('conteudo')?.errors && formulario.get('conteudo')?.touched">
